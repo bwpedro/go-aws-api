@@ -35,8 +35,11 @@ func handleGetUsers(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 		}, nil
 	}
 
+	headers := map[string]string{"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}
+
 	return events.APIGatewayProxyResponse{
 		StatusCode: http.StatusOK,
+		Headers:    headers,
 		Body:       string(js),
 	}, nil
 }
@@ -59,8 +62,11 @@ func handleGetUser(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRes
 		}, nil
 	}
 
+	headers := map[string]string{"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}
+
 	return events.APIGatewayProxyResponse{
 		StatusCode: http.StatusOK,
+		Headers:    headers,
 		Body:       string(js),
 	}, nil
 }

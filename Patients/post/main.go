@@ -27,8 +27,11 @@ func handleCreatePatients(req events.APIGatewayProxyRequest) (events.APIGatewayP
 		}, nil
 	}
 
+	headers := map[string]string{"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}
+
 	return events.APIGatewayProxyResponse{
 		StatusCode: http.StatusCreated,
+		Headers:    headers,
 		Body:       "Paciente criado com sucesso!",
 	}, nil
 }

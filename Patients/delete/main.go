@@ -17,8 +17,11 @@ func handleDeletePatients(req events.APIGatewayProxyRequest) (events.APIGatewayP
 		}, nil
 	}
 
+	headers := map[string]string{"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}
+
 	return events.APIGatewayProxyResponse{
 		StatusCode: http.StatusOK,
+		Headers:    headers,
 		Body:       "Paciente deletado com sucesso!",
 	}, nil
 }
